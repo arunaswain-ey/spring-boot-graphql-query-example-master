@@ -1,4 +1,4 @@
-package com.techprimers.graphql.springbootgrapqlexample.model;
+package com.techtalk.graphql.springbootgrapqlexample.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -1,6 +1,6 @@
-package com.techprimers.graphql.springbootgrapqlexample.resource;
+package com.techtalk.graphql.springbootgrapqlexample.controller;
 
-import com.techprimers.graphql.springbootgrapqlexample.service.GraphQLService;
+import com.techtalk.graphql.springbootgrapqlexample.service.GraphQLService;
 import graphql.ExecutionResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,15 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RequestMapping("/rest/books")
 @RestController
-public class BookResource {
+public class BookController {
 
     @Autowired
     GraphQLService graphQLService;
 
     @PostMapping
     public ResponseEntity<Object> getAllBooks(@RequestBody String query) {
-        ExecutionResult execute = graphQLService.getGraphQL().execute(query);
-
-        return new ResponseEntity<>(execute, HttpStatus.OK);
+        ExecutionResult result = graphQLService.getGraphQL().execute(query);
+        return new ResponseEntity<Object>(result, HttpStatus.OK);
     }
 }
